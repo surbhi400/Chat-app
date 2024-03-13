@@ -10,7 +10,7 @@ import {
 import { BellIcon, ChevronDownIcon } from "@chakra-ui/icons";
 // import NotificationBadge from "react-notification-badge";
 import { Avatar } from "@chakra-ui/avatar";
-// import ProfileModal from "./ProfileModal";
+import ProfileModal from "./ProfileModal";
 import { ChatState } from '../../Context/ChatProvider';
 
 
@@ -69,9 +69,9 @@ const SideDrawer = () => {
               />
             </MenuButton> 
              <MenuList>
-             
+              <ProfileModal user={user}>
                 <MenuItem>My Profile</MenuItem>{" "}
-            
+              </ProfileModal>
               <MenuDivider />
               {/* onClick={logoutHandler} */}
               <MenuItem >Logout</MenuItem>
