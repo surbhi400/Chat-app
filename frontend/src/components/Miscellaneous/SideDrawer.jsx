@@ -16,16 +16,22 @@ import { useToast } from "@chakra-ui/toast";
 import axios from 'axios';
 import ChatLoading from "../Miscellaneous/ChatLoading";
 import UserListItem from '../UserAvatar/UserListItem';
-
+import {useNavigate} from 'react-router-dom'
 
 const SideDrawer = () => {
    const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const [loadingChat, setLoadingChat] = useState(false);
-   const {user,setSelectedChat, chats, setChats} =ChatState();
+  const {user,setSelectedChat, chats, setChats} =ChatState();
  const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const navigate=useNavigate();
+
+   const logoutHandler = () => {
+    localStorage.removeItem("userInfo");
+    navigate("/");
+  };
 
 const handleSearch = async () => {
     if (!search) {
@@ -145,8 +151,8 @@ const handleSearch = async () => {
                 <MenuItem>My Profile</MenuItem>{" "}
               </ProfileModal>
               <MenuDivider />
-              {/* onClick={logoutHandler} */}
-              <MenuItem >Logout</MenuItem>
+              
+              <MenuItem onClick={logoutHandler}>Logout</MenuItem>
             </MenuList> 
           </Menu>
         </div>
