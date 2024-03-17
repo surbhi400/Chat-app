@@ -209,7 +209,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
             borderRadius="lg"
             overflowY="hidden"
           >
-            {!loading ? (
+            {loading ? (
               <Spinner
                 size="xl"
                 w={20}
