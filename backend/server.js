@@ -22,7 +22,15 @@ app.use(express.json());// to accept JSON data.
 app.get('/', (req,res)=> {
     res.send("API is running successfully");
 })
-
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
+  next();
+});
 app.use('/api/user',userRoutes);
 app.use('/api/chat', chatRoutes);
 app.use('/api/message', messageRoutes);
