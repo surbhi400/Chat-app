@@ -29,7 +29,7 @@ const SideDrawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate=useNavigate();
 
-  const apiUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+  const apiUrl = process.env.REACT_APP_BACKEND_URL || 'https://chatter-box-0bzs.onrender.com';
    const logoutHandler = () => {
     localStorage.removeItem("userInfo");
     navigate("/");

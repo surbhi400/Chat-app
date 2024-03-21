@@ -16,7 +16,7 @@ const Login = () => {
   const toast = useToast();
   const navigate = useNavigate();
 
-  const apiUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+  const apiUrl = process.env.REACT_APP_BACKEND_URL || 'https://chatter-box-0bzs.onrender.com';
   const handleClick = () => setShow(!show);
 
   const submitHandler = async () => {

@@ -16,7 +16,7 @@ const UpdateGroupChatModal = ({fetchMessages,fetchAgain, setFetchAgain}) => {
   const [renameLoading, setRenameLoading]= useState(false);
   const toast = useToast();
 
-const apiUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+const apiUrl = process.env.REACT_APP_BACKEND_URL || 'https://chatter-box-0bzs.onrender.com';
 const handleSearch = async (query) => {
     setSearch(query);
     if (!query) {
