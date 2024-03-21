@@ -29,6 +29,7 @@ const SideDrawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate=useNavigate();
 
+  const apiUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
    const logoutHandler = () => {
     localStorage.removeItem("userInfo");
     navigate("/");
@@ -55,7 +56,7 @@ const handleSearch = async () => {
         },
       };
 
-      const { data } = await axios.get(`/api/user?search=${search}`, config);
+      const { data } = await axios.get(apiUrl + `/api/user?search=${search}`, config);
 
       setLoading(false);
       setSearchResult(data);
@@ -80,7 +81,7 @@ const handleSearch = async () => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.post(`/api/chat`, { userId }, config);
+      const { data } = await axios.post(apiUrl + `/api/chat`, { userId }, config);
 
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
       setSelectedChat(data);

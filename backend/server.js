@@ -8,11 +8,15 @@ const chatRoutes=require("./routes/chatRoutes");
 const messageRoutes=require("./routes/messageRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const path = require('path');
+const cors = require("cors");
+
+const app= express();
+app.use(cors());
 
 
 dotenv.config();
 connectDB();
-const app= express();
+
 app.use(express.json());// to accept JSON data.
 
 app.get('/', (req,res)=> {

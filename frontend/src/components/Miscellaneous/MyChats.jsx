@@ -16,6 +16,7 @@ const MyChats = ({ fetchAgain }) => {
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
 
   const toast = useToast();
+  const apiUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
   const fetchChats = async () => {
     // console.log(user._id);
@@ -26,7 +27,7 @@ const MyChats = ({ fetchAgain }) => {
         },
       };
 
-      const { data } = await axios.get("/api/chat", config);
+      const { data } = await axios.get(apiUrl+"/api/chat", config);
       // console.log(data);
       setChats(data);
     } catch (error) {

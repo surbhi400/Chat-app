@@ -26,6 +26,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
   const [typing, setTyping] = useState(false);
   const [istyping, setIsTyping] = useState(false);
   const toast = useToast();
+  const apiUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
   
   const defaultOptions = {
@@ -52,7 +53,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
       setLoading(true);
 
       const { data } = await axios.get(
-        `/api/message/${selectedChat._id}`,
+        apiUrl+`/api/message/${selectedChat._id}`,
         config
       );
       // console.log(messages);
@@ -84,7 +85,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
         };
         setNewMessage("");
         const { data } = await axios.post(
-          "/api/message",
+          apiUrl+"/api/message",
           {
             content: newMessage,
             chatId: selectedChat._id,

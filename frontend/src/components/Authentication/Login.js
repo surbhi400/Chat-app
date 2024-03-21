@@ -16,6 +16,7 @@ const Login = () => {
   const toast = useToast();
   const navigate = useNavigate();
 
+  const apiUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
   const handleClick = () => setShow(!show);
 
   const submitHandler = async () => {
@@ -42,7 +43,7 @@ const Login = () => {
       };
 
       const { data } = await axios.post(
-        "/api/user/login",
+        apiUrl + "/api/user/login",
         { email, password },
         config
       );

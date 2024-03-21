@@ -20,6 +20,8 @@ const Signup = () => {
 
     const handleClick = () => setShow(!show);
 
+    const apiUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+
 
     const postDetails= (pics) =>{
       setLoading(true);
@@ -104,7 +106,8 @@ const Signup = () => {
       },
     };
 
-    const { data } = await axios.post("/api/user", { name, email, password, pic }, config);
+    console.log(apiUrl + '/api/user')
+    const { data } = await axios.post(apiUrl+'/api/user', { name, email, password, pic }, config);
 
     console.log(data);
 
