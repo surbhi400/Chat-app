@@ -23,8 +23,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts --openssl-legacy-provider build",
+    "start": "node --max-old-space-size=4096 ./node_modules/react-scripts/bin/react-scripts.js --openssl-legacy-provider start",
+    "build": "node --max-old-space-size=4096 ./node_modules/react-scripts/bin/react-scripts.js --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
